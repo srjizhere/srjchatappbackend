@@ -35,6 +35,7 @@ const User = require('../models/user.model');
  });
 
  const allMessage = asyncHandler(async(req,res)=>{
+    // console.log(req.params)/
     try {
         const messages = await Message.find({chat:req.params.chatId}).populate(
             "sender",

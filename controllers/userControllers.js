@@ -36,6 +36,7 @@ const registerUser = asyncHandler(async(req,res)=>{
 
 const authuser = asyncHandler(async (req,res)=>{
     const {email,password} = req.body;
+    console.log(req);
     const user = await User.findOne({email});
     if(user  && ( await user.matchPassword(password))){
         res.json({
@@ -45,6 +46,7 @@ const authuser = asyncHandler(async (req,res)=>{
             pic:user.pic,
             token:genrateToken(user._id),
         })
+        console.log(user);
     }else{
         res.status(401);
         throw new Error("Invalid Eamil or Password")
