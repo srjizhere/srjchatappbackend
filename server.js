@@ -33,7 +33,7 @@ app.use("/api/message", messageRoutes);
 app.use(notFound);
 app.use(errHandler);
 
-const PORT = process.env.port;
+const PORT = process.env.port || 8080;
 
 const server = app.listen(
   PORT,
